@@ -5,5 +5,9 @@ import datetime
 BASE_URL = "http://127.0.0.1:8000/"
 
 def index(request):
-   context = {"account_url":BASE_URL + "account/"}
-   return None
+    context = {}
+    date = datetime.datetime.today()
+    context["date"] = date
+    context["login"] = BASE_URL + "login/"
+    context["sign_up"] = BASE_URL + "signup/"
+    return render(request, "index.html", context)
