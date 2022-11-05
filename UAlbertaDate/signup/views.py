@@ -30,7 +30,7 @@ def signup(request):
                 user_instance = User.objects.create_user(
                     username=email, 
                     email=email, 
-                    password=password
+                    password=password,
                 )
                 user_instance.save()
                 return redirect("http://127.0.0.1:8000/index/")
