@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "login",
     "account",
     "matches",
-    "signup"
+    "signup",
+    "swipe"
 ]
 
 MIDDLEWARE = [
