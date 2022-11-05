@@ -10,4 +10,5 @@ def index(request):
     context["date"] = date
     context["login"] = BASE_URL + "login/"
     context["sign_up"] = BASE_URL + "signup/"
+    
     return render(request, "index.html", context)
