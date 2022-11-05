@@ -3,6 +3,7 @@ from .forms import SignUpForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.exceptions import ValidationError
+from django.shortcuts import redirect
 
 def verify_email(email):
     try:
@@ -16,14 +17,14 @@ def verify_email(email):
 
 # Create your views here.
 def signup(request):
-    context = {}
+    context = {"errors":[]}
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
             if User.objects.filter(email=email).exists():
-                messages.error("an account already exists with this email address.")
+                context["errors"].append("an account already exists with this email address.")
                 form = SignUpForm()
             else:
                 user_instance = User.objects.create_user(
@@ -32,9 +33,10 @@ def signup(request):
                     password=password
                 )
                 user_instance.save()
+                return redirect("http://127.0.0.1:8000/index/")
 
-    
     elif request.method != "POST":
         form = SignUpForm()
     
-    return request(request, "signup", context)
+    context["form"] = form
+    return render(request, "signup.html", context)

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from validators import email_validator
+from .validators import email_validator
 
 class SignUpForm(forms.ModelForm):
 
@@ -14,8 +14,11 @@ class SignUpForm(forms.ModelForm):
 
     class Meta:
         model = User
-        exclude = [
-            "username"
+        fields = [
+            "email",
+            "password",
+            "first_name",
         ]
+        
 
     
