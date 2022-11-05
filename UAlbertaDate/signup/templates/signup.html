@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<h1>Create Account</h1>
+
+<form method="post">
+    
+    {% csrf_token %}
+    {{errors}}
+    {{form.as_p}}
+
+<input type="submit" value="Submit"> 
+
+</form>
