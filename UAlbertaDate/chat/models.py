@@ -22,6 +22,7 @@ class ChatRoom(models.Model):
         max_length=40
     )
 
+
 class Message(models.Model):
 
     text = models.TextField(
@@ -30,15 +31,20 @@ class Message(models.Model):
 
     chat_room = models.ForeignKey(
         to=ChatRoom,
-        on_delete=models.PROTECT
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True,
     )
 
     user = models.ForeignKey(
         to=User,
         on_delete=models.PROTECT,
+        blank=True,
+        null=True,
     )
 
-    index = models.IntegerField(
+    message_index = models.IntegerField(
         blank=True,
+        null=True,
     )
 

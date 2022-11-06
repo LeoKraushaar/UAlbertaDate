@@ -18,31 +18,29 @@ def all_chats(request):
     context["match_set"] = set(zip(matched_profiles, match_urls, links))
     return render(request, "all_chats.html", context)
 
-def chat(request, room_url):
+def chat(request, room_url:str):
     context = {}
     try:
         room = ChatRoom.objects.get(url=room_url)
     except:
         ccids = ccids_from_url(room_url)
         users = users_from_ccids(ccids)
-        room = ChatRoom.create(user_one=users[0], user_two=users[1], url=room_url)
+        room = ChatRoom.objects.create(user_one=users[0], user_two=users[1], url=room_url)
 
     if request.method == "POST":
         new_message = MessageForm(request.POST)
-        return render(request, "test.html", context={"print":new_message.errors})
         if new_message.is_valid():
-            new_message.save(commit=False)
-            return render(request, "test.html", {"print":new_message.cleaned_data})
+            new_message = new_message.save(commit=False)
             new_message.chat_room = room
-            new_message.index = get_num_messages(room) + 1
+            new_message.message_index = get_num_messages(room) + 1
             new_message.user = request.user
-            new_message.save(commit=True)
+            new_message.save()
             return redirect(CHAT_URL + room_url)
    
     elif request.method != "POST":
-        message = MessageForm()
+        new_message = MessageForm()
 
-    context["form"] = message
+    context["form"] = new_message
     context["messages"] = Message.objects.filter(chat_room=room)
     return render(request, "chat.html", context)
 
