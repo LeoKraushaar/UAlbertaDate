@@ -25,7 +25,7 @@ class ChatRoom(models.Model):
 
 class Message(models.Model):
 
-    text = models.TextField(
+    text = models.CharField(
         max_length=200
         )
 
