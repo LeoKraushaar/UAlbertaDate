@@ -4,9 +4,9 @@ from .models import UserInfo as UserInfo
 class PersonalInfoForm(forms.ModelForm):
 
     LOOKING_FOR_CHOICES = [
-        (0, "Not sure yet"),
-        (1, "Something short-term"),
-        (2, "Something long-term")
+        ("Not sure yet", "Not sure yet"),
+        ("Something short-term","Something short-term"),
+        ("Something long-term", "Something long-term"),
     ]
 
     TARGET_GENDER_CHOICES = [
@@ -16,29 +16,15 @@ class PersonalInfoForm(forms.ModelForm):
         (["all"], "Anything")
     ]
 
-    FACULTY_CHOICES = [
-        ("kin", "Kinesiology/Sport + Recreation"),
-        ("med", "Medicine/Dentistry"),
-        ("nurs", "Nursing"),
-        ("phar", "Pharmaceutical Sciences"),
-        ("rehab", "Rehabilitation Medicine"),
-        ("agg", "Agriculture/Environmental Sciences"),
-        ("engg", "Engineering"),
-        ("sci", "Science"),
-        ("bus", "Business"),
-        ("art", "Arts/Humanities"),
-        ("edu", "Education"),
-        ("law", "Law")
-    ]
-
     MAJOR_CHOICES = [              # Incomplete
-        ("bio", "Biological Sciences"),
-        ("chem", "Chemistry"),
-        ("comp", "Computer Science"),
-        ("math", "Mathetmatics/Statistics"),
-        ("phys", "Physics"),
-        ("psych", "Psychology"),
-        ("mus", "Music")
+        ("Biological Sciences", "Biological Sciences"),
+        ("Chemistry", "Chemistry"),
+        ("Computer Science", "Computer Science"),
+        ("Mathetmatics/Statistics", "Mathetmatics/Statistics"),
+        ("Physics", "Physics"),
+        ("Psychology", "Psychology"),
+        ("Music", "Music"),
+        ("Business", "Business")
     ]
 
     GENDER_CHOICES = [

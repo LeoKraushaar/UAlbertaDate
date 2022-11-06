@@ -17,7 +17,7 @@ def swipe(request):
         available_infos = UserInfo.objects.all()
         try:
             profile = available_infos.order_by("?").first()
-            if are_compatible(profile, user_info) and is_viable(profile, user_info):
+            if are_compatible(profile, user_info) and is_not_self(profile, user_info):
                 current_profile = profile
         except:
             context["user_image"] = None
@@ -47,10 +47,9 @@ def are_compatible(info1, info2):
     except AssertionError:
         return False
 
-def is_viable(profile, user_info):
+def is_not_self(profile, user_info):
     try:
         assert profile.user != user_info.user
-        assert not LikeRelationship.objects.get(liker=user_info.user, likee=profile.user)
         return True
     except AssertionError:
         return False
