@@ -43,7 +43,7 @@ class PersonalInfoForm(forms.ModelForm):
     #     required=False
     # )
 
-    looking_for = forms.IntegerField(
+    looking_for = forms.CharField(
         widget=forms.RadioSelect(
             choices=LOOKING_FOR_CHOICES
         )

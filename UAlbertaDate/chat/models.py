@@ -5,14 +5,14 @@ from django.contrib.auth.models import User
 class ChatRoom(models.Model):
     user_one = models.ForeignKey(
         to=User,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         blank=True,
         null=True
     )
 
     user_two = models.ForeignKey(
         to=User,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         blank=True,
         null=True,
         related_name = "+"
@@ -31,14 +31,14 @@ class Message(models.Model):
 
     chat_room = models.ForeignKey(
         to=ChatRoom,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         blank=True,
         null=True,
     )
 
     user = models.ForeignKey(
         to=User,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         blank=True,
         null=True,
     )

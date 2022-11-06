@@ -6,10 +6,10 @@ class LikeRelationship(models.Model):
 
     liker = models.ForeignKey(
         to=User,
-        on_delete=models.PROTECT
+        on_delete=models.CASCADE
     )
     likee = models.ForeignKey(
         to=User,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         related_name = "+"
     )
