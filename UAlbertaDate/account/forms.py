@@ -24,7 +24,8 @@ class PersonalInfoForm(forms.ModelForm):
         ("Physics", "Physics"),
         ("Psychology", "Psychology"),
         ("Music", "Music"),
-        ("Business", "Business")
+        ("Business", "Business"),
+        ("Education", "Education")
     ]
 
     GENDER_CHOICES = [
@@ -56,7 +57,7 @@ class PersonalInfoForm(forms.ModelForm):
     )
 
     major = forms.CharField(
-        widget=forms.RadioSelect(
+        widget=forms.Select(
             choices=MAJOR_CHOICES
         )
     )  
