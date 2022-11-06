@@ -1,6 +1,155 @@
 <!DOCTYPE html>
 
-<div>
+<html lang="en">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" cotent = "ie=edge">
+    <title>UAlberta Date</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f1f1f1;
+            {% comment %} height: 100%; {% endcomment %}
+        }
+        
+        header {
+            text-align: left;
+            background-color: #355d3b;
+            color: #fff;
+            transform: translate(0%, -85%);
+            padding: 20px;
+        }
+        
+        main {
+            text-align: center;
+            margin: auto;
+            padding: 20px 80px;
+            border-radius: 5;
+            min-height: calc(50vh - 84px - 69px);
+        } 
+
+        article {
+            margin: auto;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            background-color: #fff;
+            position: absolute;
+            
+            padding: 0px 10px;
+            width: 500px;
+            height: 150px;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, 0%);
+        }
+
+        h1 {
+            color: #484848;
+            padding: 10px 0px;
+            margin: auto;
+            font-size: 30px;
+            transform: translate(0%, 20%);
+        }
+
+        h3 {
+            color: #484848
+            padding: 10px 0px;
+            font-size: 15px;
+        }
+        
+        img {
+            margin-left: 150px;
+            height: 40px;
+            width: 170px;
+            object-fit: cover;
+            object-position: 100% 95%;
+            filter: invert(100%) sepia(0%) saturate(2000%) hue-rotate(147deg) brightness(118%) contrast(100%);
+        }
+        
+        button {
+            background-color: #355d3b;
+            border: #000;
+            color: #fff;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+        }
+        button a {
+            display: block;
+            padding: 15px 32px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        footer {
+            margin: 0;
+            text-align: center;
+            background-color: #355d3b;
+            color: #fff;
+            padding: 25px;
+            
+            position: relative;
+            width: 100%;
+            right: -50%;
+            bottom: 100%;
+            transform: translate(-50%, 1020%);
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <footer>
+        <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
+    </footer>
+    <header>
+        <a href="https://www.ualberta.ca/index.html">
+        <img alt="logo" src="https://logodix.com/logo/1031274.png">
+        </a>
+    </header>
+
+    <main>
+        <article>
+            
+            <h1>Account Information</h1>
+
+                <h3>email: {{email}}<h3>
+
+            <button type="submit">
+                <a href={{edit_info_url}}>My Information</a>
+            </button>
+
+            <button type="submit">
+                <a href={{chat_url}}>My Matches</a>
+            </button>
+
+            
+        </article>
+
+
+    </main>
+
+</body>
+
+
+
+</html>
+
+{% comment %} <div>
     
     <h1>Account Information</h1>
         
@@ -14,7 +163,7 @@
     <button type="submit">
         <a href={{edit_info_url}}>My Information</a>
     </button>
-    </p>
+    </p> 
 
     <p>
     <button type="submit">
@@ -22,4 +171,4 @@
     </button>
     </p>
 
-</div>
+</div> {% endcomment %}
