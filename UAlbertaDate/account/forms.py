@@ -16,16 +16,17 @@ class PersonalInfoForm(forms.ModelForm):
         (["all"], "Anything")
     ]
 
-    MAJOR_CHOICES = [              # Incomplete
+    MAJOR_CHOICES = [
         ("Biological Sciences", "Biological Sciences"),
         ("Chemistry", "Chemistry"),
         ("Computer Science", "Computer Science"),
-        ("Mathetmatics/Statistics", "Mathetmatics/Statistics"),
+        ("Mathematics/Statistics", "Mathematics/Statistics"),
         ("Physics", "Physics"),
         ("Psychology", "Psychology"),
         ("Music", "Music"),
         ("Business", "Business"),
-        ("Education", "Education")
+        ("Education", "Education"),
+        ("Humanities", "Humanities")
     ]
 
     GENDER_CHOICES = [
@@ -38,11 +39,6 @@ class PersonalInfoForm(forms.ModelForm):
         widget=forms.HiddenInput(),
         required=False
     )
-
-    # image_file = forms.ImageField(
-    #     allow_empty_file=True,
-    #     required=False
-    # )
 
     looking_for = forms.CharField(
         widget=forms.RadioSelect(
@@ -70,4 +66,6 @@ class PersonalInfoForm(forms.ModelForm):
 
     class Meta:
         model = UserInfo
-        fields = "__all__"
+        exclude = [
+            "first_name"
+        ]
