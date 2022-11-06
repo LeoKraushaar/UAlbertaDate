@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" cotent = "ie=edge">
-    <title>UAlberta Date</title>
+    <title>UAlberta Date Account</title>
 
     <style>
         * {
@@ -14,18 +14,16 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f1f1f1;
-            {% comment %} height: 100%; {% endcomment %}
-        }
-        
         header {
             text-align: left;
             background-color: #355d3b;
             color: #fff;
-            transform: translate(0%, -85%);
             padding: 20px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f1f1f1;
         }
         
         main {
@@ -101,11 +99,9 @@
             color: #fff;
             padding: 25px;
             
-            position: relative;
             width: 100%;
-            right: -50%;
-            bottom: 100%;
-            transform: translate(-50%, 1020%);
+            bottom: 0;
+            position: fixed;  
         }
         
     </style>
@@ -113,9 +109,7 @@
 </head>
 
 <body>
-    <footer>
-        <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
-    </footer>
+
     <header>
         <a href={{index}}>
         <img alt="logo" src="https://logodix.com/logo/1031274.png">
@@ -142,33 +136,11 @@
 
 
     </main>
-
+    <footer>
+        <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
+    </footer>
 </body>
 
 
 
 </html>
-
-{% comment %} <div>
-    
-    <h1>Account Information</h1>
-        
-        <p>email: {{email}}</p>
-
-</div>
-
-<div>
-    
-    <p>
-    <button type="submit">
-        <a href={{edit_info_url}}>My Information</a>
-    </button>
-    </p> 
-
-    <p>
-    <button type="submit">
-        <a href={{chat_url}}>My Matches</a>
-    </button>
-    </p>
-
-</div> {% endcomment %}
