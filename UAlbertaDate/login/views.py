@@ -7,6 +7,7 @@ from account.models import UserInfo
 HOMEPAGE = "http://127.0.0.1:8000/index/"
 ACCOUNT_URL = "http://127.0.0.1:8000/account/"
 SWIPE_URL = "http://127.0.0.1:8000/swipe/"
+INDEX_URL = "http://127.0.0.1:8000/index/"
 
 # Create your views here.
 def login(request):
@@ -30,5 +31,6 @@ def login(request):
     elif request.method != "POST":
         form = AuthenticationForm()
 
+    context["index"] = INDEX_URL
     context["form"] = form
     return render(request, "login.html", context)
