@@ -3,11 +3,11 @@
 
 <h2>My Matches</h2>
 
-{% for match, url, ccid in match_set %}
+{% for match, url, chat_link in match_set %}
     <p>
     <img src="{{url}}" height=50 width=50></img>
     <button type="submit" >
-        <a href={{link_to_chat}}>{{match.first_name}}</a>
+        <a href={{chat_link}}>{{match.first_name}}</a>
     </button>
     </p>
 {% endfor %}
