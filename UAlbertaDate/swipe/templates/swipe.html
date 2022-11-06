@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 
 <image>
-    {{user_image}}
+    {% if user_image %}
+        {{user_image}}
+    {% endif %}
 </image>
 
-<div>
-    <button type="submit">Like</button>
-    <button type="submit">Pass</button>
-</div>
+<p>
+    {% for label, info in profile_info.items %}
+        <li>{{label}} {{info}}</li>
+    {% endfor %}
+</p>
+{{prints}}
+<form method="post">
+    <button type='submit'>Like</button>
+</form>
+
+<form method="post">
+    <button type='submit'>Pass</button>
+</form>

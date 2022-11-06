@@ -17,14 +17,13 @@ def edit_info(request):
     context = {}
     
     if request.method == "POST":
-        form = PersonalInfoForm(request.POST)
+        form = PersonalInfoForm(request.POST, request.FILES)
         if not form.is_valid():
             context["errors"] = form.errors
         else:
             # Check if user already has info, if so, delete it before updating.
             try:
                 UserInfo.objects.filter(user=request.user).delete()
-                print("deleted.")
             except:
                 pass
 
