@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from account.models import UserInfo
 from .forms import LikeForm, PassForm
+from .models import LikeRelationship
 # Create your views here.
 
 STATIC_URL = "http://127.0.0.1:8000/static/media/{}"
@@ -23,11 +24,10 @@ def swipe(request):
 
     if request.method == "POST":
         like_form = LikeForm(request.POST)
-        if not like_form.is_valid():
-            return render(request, "swipe.html", context={"prints":like_form.errors})
         if like_form.is_valid():
-            user_info.liked_users.add(current_profile.user)
-            return render(request, "swipe.html", context={"prints":user_info.liked_users.all()})
+            like_relationship = LikeRelationship(liker=user, likee=current_profile.user)
+            if not LikeRelationship.objects.filter(liker=user, likee=current_profile.user).exists():
+                like_relationship.save()
         else:
             return redirect(SWIPE_URL)
 

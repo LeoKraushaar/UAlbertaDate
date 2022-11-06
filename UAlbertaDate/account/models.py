@@ -34,14 +34,6 @@ class UserInfo(models.Model):
     hometown = models.TextField()
     bio = models.TextField(max_length=300)
 
-    # Liked Users
-    liked_users = models.ManyToManyField(
-        to=User,
-        default=[],
-        related_name='+',
-    )
-
-
     def get_attributes(self):
         attrs = [
             str(self.height_ft)+"'"+str(self.height_in),
