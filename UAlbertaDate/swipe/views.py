@@ -34,7 +34,9 @@ def swipe(request):
 
     
     context["first_name"] = current_profile.user.first_name
-    context["profile_info"] = current_profile.get_attributes()
+    temp = current_profile.get_attributes()
+    context["bio"]  = temp.popitem()[1]
+    context["profile_info"] = temp
     context["image_url"] = STATIC_URL.format(current_profile.image_file)
     return render(request, "swipe.html", context)
 
