@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 HOMEPAGE = "http://127.0.0.1:8000/index/"
 ACCOUNT_URL = "http://127.0.0.1:8000/account/"
+SWIPE_URL = "http://127.0.0.1:8000/swipe/"
 
 # Create your views here.
 def login(request):
@@ -17,7 +18,7 @@ def login(request):
             user = authenticate(username=email, password=password)
             if user:
                 lg(request=request, user=user)
-                return redirect(ACCOUNT_URL)
+                return redirect(SWIPE_URL)
             else:
                 context["errors"].append("Invalid username or password.")
                 form = AuthenticationForm()
