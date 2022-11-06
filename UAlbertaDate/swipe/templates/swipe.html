@@ -13,6 +13,11 @@
                 padding: 0;
                 box-sizing: border-box;
             }
+
+            div {
+                text-align: right;
+                transform: translate(-250px, -155px);
+            }
             
             header {
                 text-align: left;
@@ -92,6 +97,7 @@
                 cursor: pointer;
                 padding: 15px 32px;
                 float: left;
+                transform: translate(600px, 275px);
             }
 
             button[value="Pass"] {
@@ -105,6 +111,7 @@
                 cursor: pointer;
                 padding: 15px 32px;
                 float: right;
+                transform: translate(400px, 275px);
             }
 
             button a {
@@ -141,9 +148,12 @@
                     {% for label, info in profile_info.items %}
                         <li>{{label}} {{info}}</li>
                     {% endfor %}
-                    {{bio}}
+                        <div>
+                            {{bio}}
+                        <div>
                     {{prints}}
                 </p>
+                {{prints}}
                 <form method="post">
                     {% csrf_token %}
                     <button type='submit' value="Like">Like</button>
