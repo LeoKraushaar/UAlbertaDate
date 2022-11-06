@@ -7,7 +7,7 @@ class UserInfo(models.Model):
     # Key to link to User object
     user = models.OneToOneField(
         to=User,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         )
     
     image_file = models.ImageField(
@@ -20,7 +20,7 @@ class UserInfo(models.Model):
     height_in = models.IntegerField()
     
     # Mating Goals
-    looking_for = models.IntegerField(default=0)
+    looking_for = models.CharField(max_length=40)
     target_gender = models.CharField(max_length=40)
 
     # School-based

@@ -22,18 +22,16 @@ def edit_info(request):
         form = PersonalInfoForm(instance=user_info)
     except:
         form = PersonalInfoForm()
+        user_info = None
 
     if request.method == "POST":
-        form = PersonalInfoForm(request.POST, request.FILES, instance=user_info)
+        if user_info:
+            form = PersonalInfoForm(request.POST, request.FILES, instance=user_info)
+        else:
+            form = PersonalInfoForm(request.POST, request.FILES)
         if not form.is_valid():
             context["errors"] = form.errors
         else:
-            # Check if user already has info, if so, delete it before updating.
-            try:
-                UserInfo.objects.filter(user=request.user).delete()
-            except:
-                pass
-            
             context["prints"] = form.cleaned_data
             new_info = form.save(commit=False)
             new_info.user = request.user
