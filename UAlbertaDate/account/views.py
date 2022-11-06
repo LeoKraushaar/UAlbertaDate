@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import PersonalInfoForm
 from .models import UserInfo
 
+
 BASE_URL = "http://127.0.0.1:8000/{}/"
 
 # Create your views here.

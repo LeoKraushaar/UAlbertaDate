@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 
 <image>
     {% if user_image %}
-        {{user_image}}
+    <img src="{{image.url}}" width="250" height="250">
     {% endif %}
 </image>
 
