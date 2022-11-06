@@ -52,10 +52,10 @@ class PersonalInfoForm(forms.ModelForm):
         required=False
     )
 
-    image = forms.ImageField(
-        allow_empty_file=True,
-        required=False
-    )
+    # image = forms.ImageField(
+    #     allow_empty_file=True,
+    #     required=False
+    # )
 
     looking_for = forms.IntegerField(
         widget=forms.RadioSelect(
