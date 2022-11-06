@@ -1,2 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 
+{% for match in matches %}
+    <p>
+    <button type="submit" value={{match.first_name}}></button>
+    </p>
+{% endfor %}

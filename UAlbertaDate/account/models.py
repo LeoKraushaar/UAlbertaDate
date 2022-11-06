@@ -29,6 +29,7 @@ class UserInfo(models.Model):
     most_hated_course = models.CharField(max_length=40)
 
     # Other
+    first_name = models.CharField(max_length=40, null=True, blank=True)
     age = models.IntegerField()
     gender = models.CharField(max_length=40)
     hometown = models.TextField()

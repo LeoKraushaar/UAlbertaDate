@@ -24,9 +24,9 @@ urlpatterns = [
     path("", include("login.urls")),
     path("", include("index.urls")),
     path("", include("account.urls")),
-    path("", include("matches.urls")),
     path("", include("signup.urls")),
     path("", include("swipe.urls")),
+    path("", include("chat.urls"))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

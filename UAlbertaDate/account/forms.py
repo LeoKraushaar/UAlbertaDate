@@ -83,6 +83,4 @@ class PersonalInfoForm(forms.ModelForm):
 
     class Meta:
         model = UserInfo
-        exclude = [
-            "liked_users"
-        ]
+        fields = "__all__"

@@ -10,7 +10,7 @@ def account(request):
     context = {}
 
     context["email"] = request.user.email
-    context["matches_url"] = BASE_URL.format("matches")
+    context["chat_url"] = BASE_URL.format("chat")
     context["edit_info_url"] = BASE_URL.format("account/edit_info")
     return render(request, "account.html", context)
 
@@ -31,6 +31,7 @@ def edit_info(request):
             context["prints"] = form.cleaned_data
             new_info = form.save(commit=False)
             new_info.user = request.user
+            new_info.first_name = request.user.first_name
             new_info.save()
             return redirect(BASE_URL.format("account"))
     

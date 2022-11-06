@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     "index",
     "login",
     "account",
-    "matches",
     "signup",
     "swipe",
-    "crispy_forms"
+    "crispy_forms",
+    "chat",
 ]
 
 MIDDLEWARE = [
