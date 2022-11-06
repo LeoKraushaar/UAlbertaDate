@@ -79,6 +79,27 @@
                     position: fixed;  
                 }
 
+                button {
+                    background-color: #355d3b;
+                    border: #000;
+                    color: #fff;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 10px 2px;
+                    cursor: pointer;
+                    transform: translate(3%,-1810%);
+                }
+                button a {
+                    display: block;
+                    padding: 15px 23px;
+                }
+                
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
         </style>
     </head>
     <body>
@@ -104,7 +125,13 @@
                         <input type="submit" value="Send"> 
                     </form>
                 </aritcle>
+                
             </main>
+            <div>
+                <button type="submit">
+                    <a href={{all_chats_url}}>All Chats</a>
+                </button>
+            </div>
         <footer>
             <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
         </footer>

@@ -69,6 +69,28 @@
                     position: fixed;  
                 }
 
+                button.customButton {
+                    background-color: #355d3b;
+                    border: #000;
+                    color: #fff;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 10px 2px;
+                    cursor: pointer;
+                    transform: translate(-533%,-40%);
+                }
+                button.customButton a {
+                    display: block;
+                    padding: 15px 32px;
+                }
+                
+                a.buttonA {
+                    text-decoration: none;
+                    color: #fff;
+                }
+                
+
         </style>
     </head>
     <body>
@@ -89,6 +111,11 @@
                         </p>
                     {% endfor %}
                 </article>
+                <div>
+                    <button type="submit" class = "customButton">
+                        <a class="buttonA"href={{account_url}}>Account</a>
+                    </button>
+                </div>
             </main>
         <footer>
             <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
