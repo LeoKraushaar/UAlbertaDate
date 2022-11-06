@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-
+{% csrf_token %}
 <img src="{{image_url}}" height=250 width=500></img>
 
 <p>
@@ -10,9 +10,11 @@
 </p>
 {{prints}}
 <form method="post">
+    {% csrf_token %}
     <button type='submit'>Like</button>
 </form>
 
 <form method="post">
+    {% csrf_token %}
     <button type='submit'>Pass</button>
 </form>
