@@ -114,11 +114,10 @@
                 <h2>UAlberta Date Login<h2>
 
                 <form method="post">
-                    {% csrf_token %}
                     {% for error in errors %}
                         {{error}}
                     {% endfor %}
-
+                    {% csrf_token %}
                     {{form.as_p}}
                     <submitbutton>
                         <input type="submit" value="Submit" placeholder = "Test">
