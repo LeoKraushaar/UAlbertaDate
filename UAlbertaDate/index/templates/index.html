@@ -16,13 +16,14 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f1f1f1;
-            height: 100%;
+            {% comment %} height: 100%; {% endcomment %}
         }
         
         header {
             text-align: left;
             background-color: #355d3b;
             color: #fff;
+            transform: translate(0%, -85%);
             padding: 20px;
         }
         
@@ -31,7 +32,7 @@
             margin: auto;
             padding: 20px 80px;
             border-radius: 5;
-            min-height: calc(100vh - 84px - 69px);
+            min-height: calc(50vh - 84px - 69px);
         } 
 
         article {
@@ -92,10 +93,10 @@
             padding: 25px;
             
             position: relative;
-            width: 300%;
+            width: 100%;
             right: -50%;
-            bottom: 100;
-            transform: translate(-50%, 30%);
+            bottom: 100%;
+            transform: translate(-50%, 1020%);
         }
         
     </style>
@@ -103,7 +104,9 @@
 </head>
 
 <body>
-
+    <footer>
+        <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
+    </footer>
     <header>
         <a href="https://www.ualberta.ca/index.html">
         <img alt="logo" src="https://logodix.com/logo/1031274.png">
@@ -112,6 +115,7 @@
 
     <main>
         <article>
+            
             <h1>Welcome to UAlberta Date!</h1>
             <button type="submit">
                 <a href={{sign_up}}>Sign Up</a>
@@ -121,9 +125,7 @@
                 <a href={{login}}>Login</a>
             </button>
 
-            <footer>
-                <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
-            </footer>
+            
         </article>
 
 
