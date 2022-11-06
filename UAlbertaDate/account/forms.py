@@ -52,7 +52,7 @@ class PersonalInfoForm(forms.ModelForm):
         required=False
     )
 
-    # image = forms.ImageField(
+    # image_file = forms.ImageField(
     #     allow_empty_file=True,
     #     required=False
     # )

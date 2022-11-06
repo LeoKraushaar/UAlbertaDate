@@ -27,7 +27,8 @@ def edit_info(request):
                 UserInfo.objects.filter(user=request.user).delete()
             except:
                 pass
-
+            
+            context["prints"] = form.cleaned_data
             new_info = form.save(commit=False)
             new_info.user = request.user
             new_info.save()

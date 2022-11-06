@@ -1,11 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 
-<image>
-    {% if user_image %}
-    <img src="{{image.url}}" width="250" height="250">
-    {% endif %}
-</image>
+<img src="{{image_url}}" height=250 width=500></img>
 
 <p>
     {% for label, info in profile_info.items %}
