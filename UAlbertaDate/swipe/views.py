@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 STATIC_URL = "http://127.0.0.1:8000/static/media/{}"
 SWIPE_URL = "http://127.0.0.1:8000/swipe/"
 INDEX_URL = "http://127.0.0.1:8000/index/"
+ACCOUNT_URL = "http://127.0.0.1:8000/account/"
 
 def swipe(request):
     context = {}
@@ -34,6 +35,7 @@ def swipe(request):
         else:
             return redirect(SWIPE_URL)
 
+    context["account_url"] = ACCOUNT_URL
     context["index"] = INDEX_URL
     context["first_name"] = current_profile.user.first_name
     temp = current_profile.get_attributes()

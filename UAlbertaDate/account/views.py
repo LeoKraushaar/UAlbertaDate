@@ -5,10 +5,13 @@ from .models import UserInfo
 
 BASE_URL = "http://127.0.0.1:8000/{}/"
 INDEX_URL = "http://127.0.0.1:8000/index/"
+SWIPE_URL = "http://127.0.0.1:8000/swipe/"
 
 # Create your views here.
 def account(request):
     context = {}
+    
+    context["swipe_url"] = SWIPE_URL
     context["index"] = INDEX_URL
     context["email"] = request.user.email
     context["chat_url"] = BASE_URL.format("chat")
@@ -40,5 +43,6 @@ def edit_info(request):
             new_info.save()
             return redirect(BASE_URL.format("account"))
     
+    context["swipe_url"] = SWIPE_URL
     context["form"] = form
     return render(request, "edit_info.html", context)
