@@ -32,7 +32,7 @@ class UserInfo(models.Model):
     first_name = models.CharField(max_length=40, null=True, blank=True)
     age = models.IntegerField()
     gender = models.CharField(max_length=40)
-    hometown = models.TextField()
+    hometown = models.CharField(max_length=50)
     bio = models.TextField(max_length=300)
 
     def get_attributes(self):
