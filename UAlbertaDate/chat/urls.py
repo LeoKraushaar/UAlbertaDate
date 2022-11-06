@@ -4,5 +4,5 @@ from chat import views
 
 urlpatterns = [
     path("chat/", views.all_chats),
-    path("chat/<str:user>/", views.chat),
+    path("chat/<str:room_url>/", views.chat),
 ]
