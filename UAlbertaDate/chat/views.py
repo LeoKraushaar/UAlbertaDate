@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 
 CHAT_URL = "http://127.0.0.1:8000/chat/"
 INDEX_URL = "http://127.0.0.1:8000/index/"
+ACCOUNT_URL = "http://127.0.0.1:8000/account/"
 
 def all_chats(request):
     context = {}
@@ -17,6 +18,7 @@ def all_chats(request):
     match_urls = image_urls(matched_profiles)
     links = chat_links(user, matched_profiles)
 
+    context["account_url"] = ACCOUNT_URL
     context["match_set"] = set(zip(matched_profiles, match_urls, links))
     return render(request, "all_chats.html", context)
 
@@ -43,6 +45,7 @@ def chat(request, room_url:str):
     elif request.method != "POST":
         new_message = MessageForm()
 
+    context["all_chats_url"] = CHAT_URL
     context["form"] = new_message
     context["messages"] = Message.objects.filter(chat_room=room)
     return render(request, "chat.html", context)
