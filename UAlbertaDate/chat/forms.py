@@ -4,22 +4,15 @@ from django import forms
 
 class MessageForm(forms.ModelForm):
 
-    index = forms.IntegerField(
-        widget=forms.HiddenInput()
-    )
-
-    user = forms.CharField(
+    message_index = forms.IntegerField(
         widget=forms.HiddenInput(),
         required=False
     )
-
-    chat_room = forms.CharField(
-        widget=forms.HiddenInput(),
-        required=False
-    )
-
-
 
     class Meta:
         model = Message
         fields = "__all__"
+        widgets = {
+            'user':forms.HiddenInput(),
+            "chat_room":forms.HiddenInput()
+        }

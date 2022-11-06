@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 {% for message in messages %}
 
-    {{message.text}}
+    <p>
+        {{message.user.first_name}}:
+        {{message.text}}
+    </p>
 
 {% endfor %}
 
