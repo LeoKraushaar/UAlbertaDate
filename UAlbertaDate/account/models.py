@@ -11,7 +11,6 @@ class UserInfo(models.Model):
         )
     
     image = models.ImageField(
-        upload_to="upload/",
         blank=True,
         null=True)
 

@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from account.models import UserInfo
-from django.views.generic.detail import DetailView
 # Create your views here.
 
 def swipe(request):
