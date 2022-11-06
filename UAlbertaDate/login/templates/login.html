@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <style> 
+            body {
+                background-color: #f1f1f1;
+            }
 
-<h1>Log In</h1>
+            article {
+                text-align: center;
+                width: 300px;
+                background-color: white;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                z-index: 1;
+                min-height: calc(100vh-150px);
+            }
 
-<form method="post">
-    {% csrf_token %}
-    {% for error in errors %}
-        {{error}}
-    {% endfor %}
+            footer{
+                text-align: center;
+                top: 600px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <article>
 
-    {{form.as_p}}
+            <h1>UAlberta Dating Log In</h1>
 
-    <input type="submit" value="Submit"> 
+            <form method="post">
+                {% csrf_token %}
+                {% for error in errors %}
+                    {{error}}
+                {% endfor %}
 
-</form>
+                {{form.as_p}}
+
+                <input type="submit" value="Submit"> 
+
+            </form>
+        
+        </article>
+
+    </body>
+    <footer>hello</footer>
 
 </html>
