@@ -15,8 +15,15 @@
             }
 
             div {
-                text-align: right;
-                transform: translate(-250px, -155px);
+                
+                text-align: left;
+                transform: translate(330px, -155px);
+                display: inline-block;
+                {% comment %} border: 2px solid blue; {% endcomment %}
+                overflow-wrap: break-word;
+                width: 250px;
+                height: 150px; 
+                
             }
             
             header {
@@ -46,7 +53,7 @@
                 margin: auto;
                 padding: 20px 80px;
                 border-radius: 5;
-                min-height: calc(100vh - 84px - 69px);
+                min-height: calc(115vh - 84px - 69px);
             } 
 
             article {
@@ -58,7 +65,7 @@
                 padding: 0px 20px;
                 position: absolute;
                 width: 700px;
-                height: 600px;
+                height: 575px;
                 left: 50%;
                 margin-right: -50%;
                 transform: translate(-50%, 0%) 
@@ -97,7 +104,7 @@
                 cursor: pointer;
                 padding: 15px 32px;
                 float: left;
-                transform: translate(600px, 275px);
+                transform: translate(150px, -150px);
             }
 
             button[value="Pass"] {
@@ -110,8 +117,8 @@
                 margin: 10px 30px;
                 cursor: pointer;
                 padding: 15px 32px;
-                float: right;
-                transform: translate(400px, 275px);
+                float: left;
+                transform: translate(150px, -150px);
             }
 
             button a {
@@ -150,7 +157,7 @@
                     {% endfor %}
                         <div>
                             {{bio}}
-                        <div>
+                        </div>
                     {{prints}}
                 </p>
                 {{prints}}
