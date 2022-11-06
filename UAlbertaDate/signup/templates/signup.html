@@ -1,15 +1,121 @@
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" cotent = "ie=edge">
+        <title>UAlberta Date Login</title>
+        <style> 
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            header {
+                text-align: left;
+                background-color: #355d3b;
+                color: #fff;
+                padding: 20px;
+            }
 
-<h1>Create Account</h1>
+            img {
+                margin-left: 150px;
+                height: 40px;
+                width: 170px;
+                object-fit: cover;
+                object-position: 100% 95%;
+                filter: invert(100%) sepia(0%) saturate(2000%) hue-rotate(147deg) brightness(118%) contrast(100%);
+            }
+            
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f1f1f1
+            }
 
-<form method="post">
-    
-    {% csrf_token %}
-    {% for error in errors %}
-        {{error}}
-    {% endfor %}
-    {{form.as_p}}
+            main {
+                text-align: center;
+                margin: auto;
+                padding: 20px 80px;
+                border-radius: 5;
+                min-height: calc(100vh - 84px - 69px);
+            } 
 
-<input type="submit" value="Submit"> 
+            article {
+                color: #484848;
+                margin: auto;
+                text-align: center;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                background-color: #fff;
+                position: absolute;
+                width: 500px;
+                height: 200px;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, 20%)
+            }
 
-</form>
+            h1 {
+                padding: 20px 0 10px 0;
+            }
+            
+            {% comment %} input {
+                background-color: #fff;
+                border-color: #cfd4d9;
+                border-style: solid;
+                color: #fff;
+                padding: 15px 3px;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            } {% endcomment %}
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            footer {
+                text-align: center;
+                background-color: #355d3b;
+                color: #fff;
+                padding: 25px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="https://www.ualberta.ca/index.html">
+            <img alt="logo" src="https://logodix.com/logo/1031274.png">
+            </a>
+        </header>
+        <main>
+            <article>
+                <h1>Create Account</h1>
+                <h2>
+                    <form method="post">
+                        
+                        {% csrf_token %}
+                        {% for error in errors %}
+                            {{error}}
+                        {% endfor %}
+                        {{form.as_p}}
+
+                    <submitbutton>
+                        <input type="submit" value="Submit"> 
+                    </submitbutton>
+
+                    </form>
+                </h2>
+            </article>
+        </main>
+    </body>
+
+    <footer>
+        <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
+    </footer>
+
+</html>
