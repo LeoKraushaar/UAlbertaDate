@@ -62,3 +62,6 @@ class UserInfo(models.Model):
         ]
 
         return dict(zip(labels, attrs))
+
+    def get_image_url(self):
+        return "http://127.0.0.1:8000/static/media/{}".format(self.image_file)

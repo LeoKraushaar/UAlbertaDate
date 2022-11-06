@@ -23,6 +23,7 @@ def signup(request):
         if form.is_valid():
             email = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
+            first_name = form.cleaned_data.get("first_name")
             if User.objects.filter(email=email).exists():
                 context["errors"].append("an account already exists with this email address.")
                 form = SignUpForm()
@@ -31,6 +32,7 @@ def signup(request):
                     username=email, 
                     email=email, 
                     password=password,
+                    first_name=first_name
                 )
                 user_instance.save()
                 return redirect("http://127.0.0.1:8000/index/")
