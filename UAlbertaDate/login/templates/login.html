@@ -1,18 +1,62 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <style> 
+            body {
+                background-color: #f1f1f1;
+                height: 10em;
+                position: relative;
+                
+            }
 
-<h1>Log In</h1>
+            article {
+                margin: 0;
+                text-align: center;
+                background: white;
+                position: absolute;
+                top: 200%;
+                width: 300px;
+                height: 200px;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%)
+                {% comment %} text-align: center;
+                width: 300px;
+                background-color: white;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                min-height: calc(100vh-150px); {% endcomment %}
+            }
 
-<form method="post">
-    {% csrf_token %}
-    {% for error in errors %}
-        {{error}}
-    {% endfor %}
+            footer{
+                text-align: center;
+                
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <article>
 
-    {{form.as_p}}
+            <h1>UAlberta Dating Log In</h1>
 
-    <input type="submit" value="Submit"> 
+            <form method="post">
+                {% csrf_token %}
+                {% for error in errors %}
+                    {{error}}
+                {% endfor %}
 
-</form>
+                {{form.as_p}}
+
+                <input type="submit" value="Submit"> 
+
+            </form>
+        
+        </article>
+
+    </body>
+    <footer>hellofsdfsdfds</footer>
 
 </html>
