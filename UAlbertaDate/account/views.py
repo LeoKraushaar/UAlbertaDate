@@ -19,13 +19,12 @@ def edit_info(request):
 
     try:
         user_info = UserInfo.objects.get(user=request.user)
-        initial = populate_form(user_info)
-        form = PersonalInfoForm(request.POST, request.FILES, initial=initial)
+        form = PersonalInfoForm(instance=user_info)
     except:
-        initial = {}
+        form = PersonalInfoForm()
 
     if request.method == "POST":
-        
+        form = PersonalInfoForm(request.POST, request.FILES, instance=user_info)
         if not form.is_valid():
             context["errors"] = form.errors
         else:
@@ -42,30 +41,5 @@ def edit_info(request):
             new_info.save()
             return redirect(BASE_URL.format("account"))
     
-    elif request.method != "POST":
-        form = PersonalInfoForm()
-    
     context["form"] = form
     return render(request, "edit_info.html", context)
-
-def populate_form(info):
-    initial = {}
-    for field_name in info._meta.get_all_field_names():
-        try:
-            initial[field_name] = getattr(info, field_name, None)
-        except Exception as e:
-            print(e)
-    return initial
-
-fields = [
-            "height_ft",
-            "looking_for",
-            "major",
-            "target_gender",
-            "year_of_study",
-            "most_hated_course",
-            "age",
-            "gender",
-            "hometown",
-            "bio"
-]

@@ -118,13 +118,7 @@
                     <p>
                         <form method="post">
                             {% csrf_token %}
-                            {% for field in form.visible_fields %}
-                                {{ field.errors }}
-                                <p>
-                                {{field.label}}:
-                                {{ field }}
-                                </p>
-                            {% endfor %}
+                            {{form.as_p}}
                             <submitbutton>
                                 <input type="submit" value="Submit" placeholder = "Test">
                             </submitbutton>
