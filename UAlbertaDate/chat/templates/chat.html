@@ -1,16 +1,112 @@
-<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" cotent = "ie=edge">
+        <title>UAlberta Date My Matches</title>
+        <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                
+                header {
+                    text-align: left;
+                    background-color: #355d3b;
+                    color: #fff;
+                    padding: 20px;
+                }
+        
+                body {
+                    font-family: Arial, Helvetica, sans-serif;
+                    background-color: #f1f1f1;
+                }
 
-<div>
-{% for message in messages %}
-    <p>
-    {{message.user.first_name}}:
-    {{message.text}}
-    </p>
-{% endfor %}
-</div>
+                img[alt="logo"] {
+                    margin-left: 150px;
+                    height: 40px;
+                    width: 170px;
+                    object-fit: cover;
+                    object-position: 100% 95%;
+                    filter: invert(100%) sepia(0%) saturate(2000%) hue-rotate(147deg) brightness(118%) contrast(100%);
+                }
 
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Send"> 
-</form>
+                main {
+                    text-align: center;
+                    margin: auto;
+                    padding: 20px 80px;
+                    border-radius: 5;
+                    min-height: calc(50vh - 84px - 69px);
+                } 
+
+                article {
+                    margin: auto;
+                    text-align: left;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    background-color: #fff;
+                    position: absolute;
+                    
+                    padding: 5px 10px;
+                    width: auto;
+                    height: auto;
+                    left: 50%;
+                    margin-right: -50%;
+                    transform: translate(-50%, 0%);
+                }
+
+                input[value = "Send"]{
+                    background-color: #355d3b;
+                    border: none;
+                    color: #fff;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 10px 2px;
+                    cursor: pointer;
+                    padding: 10px 60px;
+                }
+
+                footer {
+                    margin: 0;
+                    text-align: center;
+                    background-color: #355d3b;
+                    color: #fff;
+                    padding: 25px;
+                    
+                    width: 100%;
+                    bottom: 0;
+                    position: fixed;  
+                }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="https://www.ualberta.ca/index.html">
+            <img alt="logo" src="https://logodix.com/logo/1031274.png">
+            </a>
+        </header>
+            <main>
+                <article>
+                    <div>
+                    {% for message in messages %}
+                        <p>
+                        {{message.user.first_name}}:
+                        {{message.text}}
+                        </p>
+                    {% endfor %}
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <input type="submit" value="Send"> 
+                    </form>
+                </aritcle>
+            </main>
+        <footer>
+            <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
+        </footer>
+    <body>
+</html>
