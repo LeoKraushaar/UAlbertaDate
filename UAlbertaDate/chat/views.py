@@ -10,16 +10,14 @@ def all_chats(request):
     user = request.user
     matched_profiles = matches(user)
     match_urls = image_urls(matched_profiles)
-    
-    ccid = get_ccid(user)
-    context["link_to_chat"] = CHAT_URL + ccid + "/"
+    links = chat_links(matched_profiles)
 
-    context["match_dict"] = dict(zip(matched_profiles, match_urls))
+    context["match_set"] = set(zip(matched_profiles, match_urls, links))
     return render(request, "all_chats.html", context)
 
 def chat(request, user):
     context = {}
-    
+
     return render(request, "chat.html", context)
 
 def matches(user):
@@ -39,7 +37,10 @@ def image_urls(matches):
         urls.append(user_info.get_image_url())
     return urls
 
-def get_ccid(user):
-    at_index = user.email.index("@")
-    ccid = user.email[:at_index]
+def chat_links(matches):
+    ccids = []
+    for user in matches:
+        at_index = user.email.index("@")
+        ccid = user.email[:at_index]
+        ccids.append(CHAT_URL + ccid + "/")
     return ccid

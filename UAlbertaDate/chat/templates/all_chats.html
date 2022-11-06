@@ -3,7 +3,7 @@
 
 <h2>My Matches</h2>
 
-{% for match, url in match_dict.items %}
+{% for match, url, ccid in match_set %}
     <p>
     <img src="{{url}}" height=50 width=50></img>
     <button type="submit" >
