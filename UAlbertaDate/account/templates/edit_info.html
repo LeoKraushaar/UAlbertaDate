@@ -95,9 +95,32 @@
                 position: fixed;  
             }
 
+            button {
+                background-color: #355d3b;
+                border: #000;
+                color: #fff;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 2px;
+                cursor: pointer;
+                transform: translate(-533%,-40%);
+            }
+            button a {
+                display: block;
+                padding: 15px 32px;
+            }
+            
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+
             p{
                 padding: 5px;
             }
+
+            
         </style>
     </head>
 
@@ -118,12 +141,19 @@
                             <submitbutton>
                                 <input type="submit" value="Submit" placeholder = "Test">
                             </submitbutton>
+                            
                         </form>
                     <p>
                 
             </article>
             
+            <div>
+                <button type="submit">
+                    <a href={{account_url}}>Account</a>
+                </button>
+            </div>
         </main>
+        
         <footer>
             <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
         </footer>

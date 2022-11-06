@@ -65,7 +65,7 @@
                 padding: 0px 20px;
                 position: absolute;
                 width: 700px;
-                height: 575px;
+                height: 615px;
                 left: 50%;
                 margin-right: -50%;
                 transform: translate(-50%, 0%) 
@@ -74,7 +74,7 @@
             img[src="{{image_url}}"]{
                 padding: 15px 0px;
                 width = 500px;
-                transform: translate(15.5%,0%);
+                transform: translate(56.5%,0%);
                 
                 height = 250px;
             }
@@ -97,32 +97,52 @@
                 background-color: #355d3b;
                 border: #000;
                 color: #fff;
-                text-align: center;
+                text-align: left;
                 display: inline-block;
                 font-size: 16px;
-                margin: 10px 30px;
+                margin: auto;
                 cursor: pointer;
                 padding: 15px 32px;
                 float: left;
-                transform: translate(150px, -150px);
+                transform: translate(0px, -150px); 
             }
 
             button[value="Pass"] {
                 background-color: #355d3b;
                 border: #000;
                 color: #fff;
+                text-align: right;
+                display: inline-block;
+                font-size: 16px;
+                margin: auto;
+                cursor: pointer;
+                padding: 15px 32px;
+                float: right;
+                transform: translate(0px, -200px);
+            }
+
+            button {
+                background-color: #355d3b;
+                border: #000;
+                color: #fff;
                 text-align: center;
                 display: inline-block;
                 font-size: 16px;
-                margin: 10px 30px;
+               
+                transform: translate(135%, -305%); 
+                margin: auto;
                 cursor: pointer;
-                padding: 15px 32px;
-                float: left;
-                transform: translate(150px, -150px);
+                
             }
 
             button a {
                 display: block;
+                padding: 15px 32px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #fff;
             }
 
             footer {
@@ -138,6 +158,12 @@
                 
             }
 
+
+            div2 {
+                text-align: center;
+                
+            }
+
         </style>
     </head>
     <body>
@@ -148,7 +174,7 @@
         </header>
         <main>
             <article>
-                <img src="{{image_url}}" height=250 width=500></img>
+                <img src="{{image_url}}" height=300 width=300></img>
 
                 <p>
                     <h2>{{first_name}}</h2>
@@ -166,6 +192,12 @@
                     <button type='submit' value="Like">Like</button>
                 </form>
 
+                <div2>
+                    <button type="submit">
+                        <a href={{account_url}}> Account </a>
+                    </button>
+                </div2>
+
                 <form method="post">
                     {% csrf_token %}
                     <button type='submit' value="Pass">Pass</button>
@@ -176,4 +208,7 @@
     <footer>
         <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
     </footer>
+
+    
+
 </html>
