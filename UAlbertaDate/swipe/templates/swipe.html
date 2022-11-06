@@ -1,20 +1,150 @@
 {% load static %}
 <!DOCTYPE html>
 {% csrf_token %}
-<img src="{{image_url}}" height=250 width=500></img>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" cotent = "ie=edge">
+        <title>UAlberta Date Login</title>
+        <style> 
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            header {
+                text-align: left;
+                background-color: #355d3b;
+                color: #fff;
+                padding: 20px;
+            }
 
-<p>
-    {% for label, info in profile_info.items %}
-        <li>{{label}} {{info}}</li>
-    {% endfor %}
-</p>
-{{prints}}
-<form method="post">
-    {% csrf_token %}
-    <button type='submit'>Like</button>
-</form>
+            img[alt="logo"] {
+                margin-left: 150px;
+                height: 40px;
+                width: 170px;
+                object-fit: cover;
+                object-position: 100% 95%;
+                filter: invert(100%) sepia(0%) saturate(2000%) hue-rotate(147deg) brightness(118%) contrast(100%);
+            }
 
-<form method="post">
-    {% csrf_token %}
-    <button type='submit'>Pass</button>
-</form>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f1f1f1
+            }
+
+            main {
+                text-align: center;
+                margin: auto;
+                padding: 20px 80px;
+                border-radius: 5;
+                min-height: calc(100vh - 84px - 69px);
+            } 
+
+            article {
+                color: #484848;
+                margin: auto;
+                text-align: center;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                background-color: #fff;
+                position: absolute;
+                width: 700px;
+                height: 600px;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, 0%)
+            }
+
+            img[src="{{image_url}}"]{
+                padding: 20px 0 0 0;
+                width = 500px;
+                height = 250px;
+            }
+
+            h1 {
+                padding: 20px 0 10px 0;
+            }
+            
+            p {
+                padding: 30px 0 0 0;
+                margin: auto;
+            }
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            button[value="Like"] {
+                background-color: #355d3b;
+                border: #000;
+                color: #fff;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 30px;
+                cursor: pointer;
+                padding: 15px 32px;
+                float: left;
+            }
+
+            button[value="Pass"] {
+                background-color: #355d3b;
+                border: #000;
+                color: #fff;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 30px;
+                cursor: pointer;
+                padding: 15px 32px;
+                float: right;
+            }
+
+            button a {
+                display: block;
+            }
+
+            footer {
+                text-align: center;
+                background-color: #355d3b;
+                color: #fff;
+                padding: 25px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="https://www.ualberta.ca/index.html">
+            <img alt="logo" src="https://logodix.com/logo/1031274.png">
+            </a>
+        </header>
+        <main>
+            <article>
+                <img src="{{image_url}}" height=250 width=500></img>
+
+                <p>
+                    {% for label, info in profile_info.items %}
+                        <li>{{label}} {{info}}</li>
+                    {% endfor %}
+                </p>
+                {{prints}}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type='submit' value="Like">Like</button>
+                </form>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type='submit' value="Pass">Pass</button>
+                </form>
+            </article>
+        </main>
+    </body>
+    <footer>
+        <p> &copy; <script>document.write(new Date().getFullYear());</script>, University of Alberta Beta Males</p>
+    </footer>
+</html>

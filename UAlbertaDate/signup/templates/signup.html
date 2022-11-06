@@ -42,7 +42,6 @@
             } 
 
             article {
-                color: #484848;
                 margin: auto;
                 text-align: center;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -56,21 +55,27 @@
             }
 
             h1 {
-                padding: 20px 0 10px 0;
+                font-size: 15px;
+                color: #484848;
+                padding: 20px 0 0 0;
             }
-            
-            {% comment %} input {
-                background-color: #fff;
-                border-color: #cfd4d9;
-                border-style: solid;
+
+            h2 {
+                color: #484848;
+                padding: 0 0 10px 0;
+            }
+
+            input[value = "Submit"]{
+                background-color: #355d3b;
+                border: none;
                 color: #fff;
-                padding: 15px 3px;
                 text-align: center;
                 display: inline-block;
                 font-size: 16px;
-                margin: 4px 2px;
+                margin: 10px 2px;
                 cursor: pointer;
-            } {% endcomment %}
+                padding: 10px 60px;
+            }
 
             a {
                 text-decoration: none;
@@ -83,9 +88,9 @@
                 color: #fff;
                 padding: 25px;
             }
-
         </style>
     </head>
+
     <body>
         <header>
             <a href="https://www.ualberta.ca/index.html">
@@ -94,22 +99,20 @@
         </header>
         <main>
             <article>
-                <h1>Create Account</h1>
-                <h2>
-                    <form method="post">
-                        
-                        {% csrf_token %}
-                        {% for error in errors %}
-                            {{error}}
-                        {% endfor %}
-                        {{form.as_p}}
+                <h1>Campus Computing ID</h1>
+                <h2>UAlberta Date Login<h2>
 
+                <form method="post">
+                    {% csrf_token %}
+                    {% for error in errors %}
+                        {{error}}
+                    {% endfor %}
+
+                    {{form.as_p}}
                     <submitbutton>
-                        <input type="submit" value="Submit"> 
+                        <input type="submit" value="Submit" placeholder = "Test">
                     </submitbutton>
-
-                    </form>
-                </h2>
+                </form>
             </article>
         </main>
     </body>
