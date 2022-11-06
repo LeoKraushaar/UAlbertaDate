@@ -45,6 +45,5 @@ def edit_info(request):
             return redirect(BASE_URL.format("account"))
     
     context["account_url"] = ACCOUNT_URL
-    context["swipe_url"] = SWIPE_URL
     context["form"] = form
     return render(request, "edit_info.html", context)

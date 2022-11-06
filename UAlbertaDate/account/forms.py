@@ -12,8 +12,7 @@ class PersonalInfoForm(forms.ModelForm):
     TARGET_GENDER_CHOICES = [
         (["m"], "Men"),
         (["f"], "Women"),
-        (["m", "f"], "Men and Women"),
-        (["all"], "Anything")
+        (["m", "f", "o"], "Men and Women"),
     ]
 
     MAJOR_CHOICES = [
