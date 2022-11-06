@@ -10,9 +10,10 @@ class UserInfo(models.Model):
         on_delete=models.PROTECT,
         )
     
-    image = models.ImageField(
-        blank=True,
-        null=True)
+    image_file = models.ImageField(
+        null=True,
+        blank=True
+        )
 
     # Physical Attributes
     height_ft = models.IntegerField()
@@ -32,6 +33,13 @@ class UserInfo(models.Model):
     gender = models.CharField(max_length=40)
     hometown = models.TextField()
     bio = models.TextField(max_length=300)
+
+    # Liked Users
+    liked_users = models.ManyToManyField(
+        to=User,
+        default=[],
+        related_name='+',
+    )
 
 
     def get_attributes(self):

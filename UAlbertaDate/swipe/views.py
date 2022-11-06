@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from account.models import UserInfo
+from .forms import LikeForm, PassForm
 # Create your views here.
+
+STATIC_URL = "http://127.0.0.1:8000/static/media/{}"
+SWIPE_URL = "http://127.0.0.1:8000/swipe/"
 
 def swipe(request):
     context = {}
@@ -13,13 +17,22 @@ def swipe(request):
             profile = available_infos.order_by("?").first()
             if are_compatible(profile, user_info):
                 current_profile = profile
-                context["user_image"] = current_profile.image
         except:
             context["user_image"] = None
-    
     user_info = UserInfo.objects.get(user=current_profile.user)
+
+    if request.method == "POST":
+        like_form = LikeForm(request.POST)
+        if not like_form.is_valid():
+            return render(request, "swipe.html", context={"prints":like_form.errors})
+        if like_form.is_valid():
+            user_info.liked_users.add(current_profile.user)
+            return render(request, "swipe.html", context={"prints":user_info.liked_users.all()})
+        else:
+            return redirect(SWIPE_URL)
+
     context["profile_info"] = current_profile.get_attributes()
-    
+    context["image_url"] = STATIC_URL.format(current_profile.image_file)
     return render(request, "swipe.html", context)
 
 def are_compatible(info1, info2):
