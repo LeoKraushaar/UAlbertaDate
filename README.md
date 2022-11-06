@@ -40,6 +40,6 @@ Features:
     - Fully-functional chat rooms between users who have "matched" with each other.
 
 Our Thoughts:
-
 Working on UAlbertaDate was a challenging yet stimulating experience for our team. One of our members dropped out due to extraneous circumstances,
-but our team took this hit in stride. With minimal experience using Django, and almost zero familiarity with HTML and CSS, 
+but our team took this hit in stride. With minimal experience using Django, and almost zero familiarity with HTML and CSS, our team was able
+to create what we think is a really good alpha version of a web app we hope to develop even further in the future :)
