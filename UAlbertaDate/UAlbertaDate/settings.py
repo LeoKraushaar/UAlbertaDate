@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "swipe",
     "crispy_forms",
     "chat",
-    "channels"
 ]
 
 MIDDLEWARE = [
