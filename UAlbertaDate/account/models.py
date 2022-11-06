@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import random
 # Create your models here.
 
 class UserInfo(models.Model):
@@ -11,7 +12,6 @@ class UserInfo(models.Model):
         )
     
     image = models.ImageField(
-        default=None,
         blank=True,
         null=True)
 
