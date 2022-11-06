@@ -17,7 +17,7 @@ def account(request):
 
 def edit_info(request):
     context = {}
-
+    context["index"] = INDEX_URL
     try:
         user_info = UserInfo.objects.get(user=request.user)
         form = PersonalInfoForm(instance=user_info)
@@ -40,6 +40,5 @@ def edit_info(request):
             new_info.save()
             return redirect(BASE_URL.format("account"))
     
-    context["index"] = INDEX_URL
     context["form"] = form
     return render(request, "edit_info.html", context)

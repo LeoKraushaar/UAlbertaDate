@@ -7,9 +7,11 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 CHAT_URL = "http://127.0.0.1:8000/chat/"
+INDEX_URL = "http://127.0.0.1:8000/index/"
 
 def all_chats(request):
     context = {}
+    context["index"] = INDEX_URL
     user = request.user
     matched_profiles = matches(user)
     match_urls = image_urls(matched_profiles)
@@ -20,6 +22,7 @@ def all_chats(request):
 
 def chat(request, room_url:str):
     context = {}
+    context["index"] = INDEX_URL
     try:
         room = ChatRoom.objects.get(url=room_url)
     except:

@@ -11,6 +11,7 @@ INDEX_URL = "http://127.0.0.1:8000/index/"
 
 def swipe(request):
     context = {}
+    context["index"] = INDEX_URL
     user = request.user
     user_info = UserInfo.objects.get(user=user)
     current_profile = None

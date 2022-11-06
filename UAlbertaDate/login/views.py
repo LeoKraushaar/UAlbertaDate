@@ -12,6 +12,7 @@ INDEX_URL = "http://127.0.0.1:8000/index/"
 # Create your views here.
 def login(request):
     context = {"errors":[]}
+    context["index"] = INDEX_URL
     if request.method == "POST":
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
@@ -31,6 +32,5 @@ def login(request):
     elif request.method != "POST":
         form = AuthenticationForm()
 
-    context["index"] = INDEX_URL
     context["form"] = form
     return render(request, "login.html", context)
