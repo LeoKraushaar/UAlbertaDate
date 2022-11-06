@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 
+INDEX_URL = "http://127.0.0.1:8000/index/"
+
 def verify_email(email):
     try:
         at_idx = email.index("@")
@@ -40,5 +42,6 @@ def signup(request):
     elif request.method != "POST":
         form = SignUpForm()
     
+    context["index"] = INDEX_URL
     context["form"] = form
     return render(request, "signup.html", context)

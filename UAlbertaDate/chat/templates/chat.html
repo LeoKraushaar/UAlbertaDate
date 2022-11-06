@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
+<div>
 {% for message in messages %}
-
     <p>
-        {{message.user.first_name}}:
-        {{message.text}}
+    {{message.user.first_name}}:
+    {{message.text}}
     </p>
-
 {% endfor %}
+</div>
 
 <form method="post">
     {% csrf_token %}

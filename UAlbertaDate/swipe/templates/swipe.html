@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" cotent = "ie=edge">
-        <title>UAlberta Date Login</title>
+        <title>UAlberta Date Swipe</title>
         <style> 
             * {
                 margin: 0;
@@ -142,7 +142,7 @@
     </head>
     <body>
         <header>
-            <a href="https://www.ualberta.ca/index.html">
+            <a href={{index}}>
             <img alt="logo" src="https://logodix.com/logo/1031274.png">
             </a>
         </header>
@@ -153,11 +153,16 @@
                 <p>
                     <h2>{{first_name}}</h2>
                     {% for label, info in profile_info.items %}
-                        <li>{{label}} {{info}}</li>
+                        <li>{{label}}{{info}}</li>
                     {% endfor %}
                         <div>
+<<<<<<< HEAD
                             {{bio}}
                         </div>
+=======
+                            <h4>{{bio}}</h4>
+                        <div>
+>>>>>>> ce60e30a4c43b794a349576dea101852e46342f6
                     {{prints}}
                 </p>
                 {{prints}}
