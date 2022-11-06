@@ -25,6 +25,7 @@ How to install:
 
     4. Open the development server in your browser. This will be at http://127.0.0.1:8000/index/ .
        This runs the server with your machine as the host, using the same port that we did during development.
+       If you need to, adjust your zoom level to fit your preference.
     
     5. Have fun! Feel free to make any changes to the database.
        Hint: To experience all of the features, make a few accounts and create some matches.
